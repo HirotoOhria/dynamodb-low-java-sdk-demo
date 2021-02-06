@@ -1,0 +1,19 @@
+{
+  "foos": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {
+            "N": "1"
+          },
+          "email": {
+            "S": "foo@example.com"
+          },
+          "name": {
+            "S": "foo"
+          }
+        }
+      }
+    }
+  ]
+}

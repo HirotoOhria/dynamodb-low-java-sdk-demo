@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+
+  dynamodb-local:
+    image: amazon/dynamodb-local:1.13.6
+    ports:
+      - "8000:8000"
+    entrypoint: java
+    command: -jar /home/dynamodblocal/DynamoDBLocal.jar -sharedDb
+
+  table-creator:
+    build:
+      context: .
+      dockerfile: docker/table-creator/Dockerfile
+    depends_on:
+      - "dynamodb-local"
+    environment:
+      - AWS_DEFAULT_REGION=ap-northeast-1
+      - AWS_ACCESS_KEY_ID=dammy-access-key
+      - AWS_SECRET_ACCESS_KEY=dammy-secret-key
+
+volumes:
+  gradle-tmp:

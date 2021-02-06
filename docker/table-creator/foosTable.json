@@ -1,0 +1,28 @@
+{
+  "TableName": "foos",
+  "AttributeDefinitions": [
+    {
+      "AttributeType": "N",
+      "AttributeName": "id"
+    },
+    {
+      "AttributeType": "S",
+      "AttributeName": "email"
+    }
+  ],
+  "KeySchema": [
+    {
+      "KeyType": "HASH",
+      "AttributeName": "id"
+    },
+    {
+      "KeyType": "RANGE",
+      "AttributeName": "email"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "WriteCapacityUnits": 5,
+    "ReadCapacityUnits": 5
+  },
+  "BillingMode": "PAY_PER_REQUEST"
+}
