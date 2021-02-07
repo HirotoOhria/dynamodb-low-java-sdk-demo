@@ -47,6 +47,15 @@ class DemoApplicationTests {
     System.out.println("item = " + item);
     System.out.println("id = " + item.get("id").n());  // "1"
     System.out.println("s of id = " + item.get("id").s());  // null
+
+    // lambda式でもっとわかりやすく書けるのではと考えたが、Hashの作成がボトルネックとなりわかりずらい
+//    client().getItem(request -> request
+//        .key(new HashMap<>() {{
+//          put("id", AttributeValue.builder().n("12").build());
+//          put("email", AttributeValue.builder().s("foobar").build());
+//        }})
+//        .tableName("foos")
+//        .build());
   }
 
   @Test
